@@ -1,0 +1,13 @@
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\bin\Debug\netcoreapp3.1\StockQuotes.exe
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\bin\Debug\netcoreapp3.1\StockQuotes.deps.json
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\bin\Debug\netcoreapp3.1\StockQuotes.runtimeconfig.json
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\bin\Debug\netcoreapp3.1\StockQuotes.runtimeconfig.dev.json
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\bin\Debug\netcoreapp3.1\StockQuotes.dll
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\bin\Debug\netcoreapp3.1\StockQuotes.pdb
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.csprojAssemblyReference.cache
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.AssemblyInfoInputs.cache
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.AssemblyInfo.cs
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.csproj.CoreCompileInputs.cache
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.dll
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.pdb
+C:\Users\danny\OneDrive\Desktop\C#\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.genruntimeconfig.cache
