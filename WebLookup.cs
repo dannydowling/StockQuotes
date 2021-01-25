@@ -29,7 +29,6 @@ class WebLookup
 
     private string FetchData()
     {
-
         string APIKey = "GUUNDXU41QUOVFW9";
         var url = string.Format(
             "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={0}&apikey={1}", _quote, APIKey);
@@ -39,14 +38,13 @@ class WebLookup
 
     private void LoadQuotes(string response)
     {
-
         //create an empty list of the object data type
         List<JObject> q = new List<JObject>();
 
-        //read through the response from the server from 15 lines down, and split on 1.
+        //read through the response from the server from 8 lines down, and split on 1.
         //pushing the list created into the object format in the list above
         var lines = File.ReadAllLines(response);
-        for (int i = 15; i < lines.Length; i++)
+        for (int i = 8; i < lines.Length; i++)
         {
             var data = lines[i].Split("1.");
             q.Add(JObject.Parse(data.ToString()));
