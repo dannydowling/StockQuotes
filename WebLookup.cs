@@ -8,20 +8,18 @@ class WebLookup
     readonly HttpClient _client;
     public List<string> results { get; internal set; }
 
-    readonly List<DateTime> _dates = new List<DateTime>();
-    readonly List<decimal> _opens = new List<decimal>();
-    readonly List<decimal> _highs = new List<decimal>();
-    readonly List<decimal> _lows = new List<decimal>();
-    readonly List<decimal> _closes = new List<decimal>();
-    readonly List<int> _volumes = new List<int>();
+    readonly Dictionary<int, DateTime> _dates = new Dictionary<int, DateTime>();
+    readonly Dictionary<int, decimal> _opens = new Dictionary<int, decimal>();
+    readonly Dictionary<int, decimal> _lows = new Dictionary<int, decimal>();
+    readonly Dictionary<int, decimal> _highs = new Dictionary<int, decimal>();
+    readonly Dictionary<int, decimal> _closes = new Dictionary<int, decimal>();
+    readonly Dictionary<int, int> _volumes = new Dictionary<int, int>();
 
     public WebLookup(string quote, HttpClient client)
     {
         results = new List<string>();
-
         _quote = quote;
         _client = client;
-
         string response = FetchData();
         LoadQuotes(response);
         ParseQuotes();
@@ -38,19 +36,16 @@ class WebLookup
 
     private void LoadQuotes(string response)
     {
-        //create an empty list of the object data type
+       
         List<JObject> q = new List<JObject>();
 
-        //read through the response from the server from 8 lines down, and split on 1.
-        //pushing the list created into the object format in the list above
-        var lines = response.Split(Environment.NewLine);
-        for (int i = 8; i < lines.Length; i++)
+        var lines = response.Split("\n");
+        for (int i = 9; i < lines.Length; ++i)
         {
-            var data = lines[i].Split("1.");
-            q.Add(JObject.Parse(data.ToString()));
-        }       
+            var data = lines[i];
+            q.Add(JObject.Parse(data.Substring(8,10)));
+        }
 
-        //parse the JSON objects and deconstruct them to the readonly lists of information.
         for (int i = 1; i < q.Count; i++)
         {
             DateTime date = Convert.ToDateTime(q[i].SelectToken("key")); //DateTime
@@ -60,19 +55,20 @@ class WebLookup
             decimal close = Convert.ToDecimal(q[i].SelectToken("4."));   //Close
             int volume = Convert.ToInt32(q[i].SelectToken("5."));        //Volume
 
-            _dates.Add(date);
-            _opens.Add(open);
-            _highs.Add(high);
-            _lows.Add(low);
-            _closes.Add(close);
-            _volumes.Add(volume);
+            //Here I'm hoping to keep association with a TKey, TValue Dictionary.
+            _dates.Add(i, date);
+            _opens.Add(i, open);
+            _highs.Add(i, high);
+            _lows.Add(i, low);
+            _closes.Add(i, close);
+            _volumes.Add(i, volume);
 
         }
     }
 
     private void ParseQuotes()
     {
-        for (int i = 0; i < _dates.Count - 5; i++)
+        for (int i = 0; i < _dates.Values.Count - 5; i++)
         {
             if (_opens[i] > _highs[i + 1] && _closes[i] < _lows[i + 1])
             {
