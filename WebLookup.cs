@@ -1,11 +1,9 @@
 using Newtonsoft.Json.Linq;
-using StockPivots;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 class WebLookup
 {
-
     readonly string _quote;
     readonly HttpClient _client;
     public List<string> results { get; internal set; }
@@ -15,7 +13,7 @@ class WebLookup
     readonly List<decimal> _highs = new List<decimal>();
     readonly List<decimal> _lows = new List<decimal>();
     readonly List<decimal> _closes = new List<decimal>();
-    readonly List<Int32> _volumes = new List<Int32>();
+    readonly List<int> _volumes = new List<int>();
 
     public WebLookup(string quote, HttpClient client)
     {
@@ -38,21 +36,18 @@ class WebLookup
     }
 
     private void LoadQuotes(string response)
-    {
-        Dictionary<string, decimal> quoteInformation = new Dictionary<string, decimal>();
+    {       
         JObject q = JObject.Parse(response);
 
         //parse the JSON objects and deconstruct them to the readonly lists of information.
         for (int i = 1; i < q.Count; i++)
         {
-            DateTime date = Convert.ToDateTime(q.SelectToken("Key.value"));
-
-            decimal open = Convert.ToDecimal(q.SelectToken("Information.open.value"));
-            decimal high = Convert.ToDecimal(q.SelectToken("Information.high.value"));
-            decimal low = Convert.ToDecimal(q.SelectToken("Information.low.value"));
-            decimal close = Convert.ToDecimal(q.SelectToken("Information.close.value"));
-            Int32 volume = Convert.ToInt32(q.SelectToken("Information.volume.value"));
-
+            DateTime date = Convert.ToDateTime(q[i].SelectToken("Key.value"));
+            decimal open = Convert.ToDecimal(q[i].SelectToken("Information.open.value"));
+            decimal high = Convert.ToDecimal(q[i].SelectToken("Information.high.value"));
+            decimal low = Convert.ToDecimal(q[i].SelectToken("Information.low.value"));
+            decimal close = Convert.ToDecimal(q[i].SelectToken("Information.close.value"));
+            int volume = Convert.ToInt32(q[i].SelectToken("Information.volume.value"));
 
             _dates.Add(date);
             _opens.Add(open);
@@ -66,21 +61,6 @@ class WebLookup
 
     private void ParseQuotes()
     {
-
-        for (int i = 0; i < _dates.Count - 5; i++)
-        {
-            if (_opens[i] > _highs[i + 1] && _closes[i] < _lows[i + 1])
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Pivot downside {0}", _dates[i].ToShortDateString());
-            }
-            if (_opens[i] < _lows[i + 1] && _closes[i] > _highs[i + 1])
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Pivot upside {0}", _dates[i].ToShortDateString());
-            }
-        }
-
         for (int i = 0; i < _dates.Count - 5; i++)
         {
             if (_opens[i] > _highs[i + 1] && _closes[i] < _lows[i + 1])
