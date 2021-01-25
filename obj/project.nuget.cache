@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "JfsWQeJtb2utbBVncVAph0ybV/9ylw/gA8BfSOwp1qu11vM7rwFP/IT/fiE5xxoQAHhj4BoOnr57tv6z3rM50w==",
+  "dgSpecHash": "ZliiPZ17SBDeK2IeySvK2qOwGfHB9GIUlNm8/sZwGrtRZ0RSS+7XgQRFmXkX2D50tJWYacMqWK3pLd783WHsGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danny\\OneDrive\\Desktop\\C#\\StockQuotes\\StockQuotes.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\danny\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }
