@@ -1,8 +1,6 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
 class WebLookup
 {
@@ -19,6 +17,8 @@ class WebLookup
 
     public WebLookup(string quote, HttpClient client)
     {
+        results = new List<string>();
+
         _quote = quote;
         _client = client;
 
