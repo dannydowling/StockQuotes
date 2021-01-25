@@ -1,6 +1,8 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net.Http;
 class WebLookup
 {
@@ -36,18 +38,29 @@ class WebLookup
     }
 
     private void LoadQuotes(string response)
-    {       
-        JObject q = JObject.Parse(response);
+    {
+
+        //create an empty list of the object data type
+        List<JObject> q = new List<JObject>();
+
+        //read through the response from the server from 15 lines down, and split on 1.
+        //pushing the list created into the object format in the list above
+        var lines = File.ReadAllLines(response);
+        for (int i = 15; i < lines.Length; i++)
+        {
+            var data = lines[i].Split("1.");
+            q.Add(JObject.Parse(data.ToString()));
+        }       
 
         //parse the JSON objects and deconstruct them to the readonly lists of information.
         for (int i = 1; i < q.Count; i++)
         {
-            DateTime date = Convert.ToDateTime(q[i].SelectToken("Key.value"));
-            decimal open = Convert.ToDecimal(q[i].SelectToken("Information.open.value"));
-            decimal high = Convert.ToDecimal(q[i].SelectToken("Information.high.value"));
-            decimal low = Convert.ToDecimal(q[i].SelectToken("Information.low.value"));
-            decimal close = Convert.ToDecimal(q[i].SelectToken("Information.close.value"));
-            int volume = Convert.ToInt32(q[i].SelectToken("Information.volume.value"));
+            DateTime date = Convert.ToDateTime(q[i].SelectToken("Properties.Values.Value"));
+            decimal open = Convert.ToDecimal(q[i].SelectToken("Properties.Values.Open"));
+            decimal high = Convert.ToDecimal(q[i].SelectToken("high.value"));
+            decimal low = Convert.ToDecimal(q[i].SelectToken("low.value"));
+            decimal close = Convert.ToDecimal(q[i].SelectToken("close.value"));
+            int volume = Convert.ToInt32(q[i].SelectToken("volume.value"));
 
             _dates.Add(date);
             _opens.Add(open);
