@@ -46,15 +46,16 @@ class WebLookup
 
     private void LoadQuotes(string response)
     {
-       
-        List<JObject> q = new List<JObject>();
-
         var lines = response.Split("\n");
-        for (int i = 9; i < lines.Length; ++i)
-        {
-            var data = lines[i];
-
-            quoteList.Add(JsonConvert.DeserializeObject<Quote>(data));           
+        for (int i = 9; i < lines.Length; i + 7)
+        {      
+            Quote quote = new Quote();
+            quote._date = JsonConvert.DeserializeObject<DateTime>(lines[i]);
+            quote._open = JsonConvert.DeserializeObject<decimal>(lines[i + 1]);
+            quote._high = JsonConvert.DeserializeObject<decimal>(lines[i + 2]);
+            quote._low = JsonConvert.DeserializeObject<decimal>(lines[i + 3]);
+            quote._close = JsonConvert.DeserializeObject<decimal>(lines[i + 4]);
+            quote._volume = JsonConvert.DeserializeObject<int>(lines[i + 5]);
         }       
     }
 
@@ -71,6 +72,8 @@ class WebLookup
 
         }
 
+        //this does a sort using the next element in the array, it looks at when the stock starts increasing 
+        //or decreasing in value.
 
         for (int i = 0; i < quoteList.Count; i++)
         {
