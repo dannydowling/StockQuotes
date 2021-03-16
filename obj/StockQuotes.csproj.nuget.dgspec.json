@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danny\\OneDrive\\Desktop\\C#\\StockQuotes\\StockQuotes.csproj": {}
+    "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danny\\OneDrive\\Desktop\\C#\\StockQuotes\\StockQuotes.csproj": {
+    "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danny\\OneDrive\\Desktop\\C#\\StockQuotes\\StockQuotes.csproj",
+        "projectUniqueName": "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj",
         "projectName": "StockQuotes",
-        "projectPath": "C:\\Users\\danny\\OneDrive\\Desktop\\C#\\StockQuotes\\StockQuotes.csproj",
+        "projectPath": "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj",
         "packagesPath": "C:\\Users\\danny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danny\\OneDrive\\Desktop\\C#\\StockQuotes\\obj\\",
+        "outputPath": "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -45,6 +45,16 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "System.Collections": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
