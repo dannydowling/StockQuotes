@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StockQuotes
 {
@@ -23,3 +21,4 @@ namespace StockQuotes
         public decimal Close { get; }
     }
 }
+

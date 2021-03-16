@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
-using System.Text;
 
 namespace StockQuotes
 {
@@ -15,9 +14,13 @@ namespace StockQuotes
 
         public LinkedList<Quote> ProfileBuilder { get; } = new LinkedList<Quote>();
 
-        public void Initialize(HttpClient client, List<string> quotes)
+        public AppData(HttpClient client, List<string> quotes)
         {
-            
+            Initialize(client, quotes);
+        }
+
+        public void Initialize(HttpClient client, List<string> quotes)
+        {           
 
             string APIKey = "GUUNDXU41QUOVFW9";
 
@@ -42,7 +45,7 @@ namespace StockQuotes
                 }
             }
 
-            _parseData.ProcessQuotes(AllQuotes);
+            return _parseData.ProcessQuotes(AllQuotes);
         }
 
     }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StockQuotes;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 
 namespace StockPivots
@@ -7,20 +9,19 @@ namespace StockPivots
     {        
         static void Main(string[] args)
         {
-            string _quote = "";
             HttpClient _client = new HttpClient();
-           
+            List<string> quotes = new List<string>();
 
             if (args.Length < 1)
-            { _quote = "msft"; }
+            { quotes.Add("msft"); }
             else
-            { _quote = args[0].ToString(); }
-
-            WebLookup w = new WebLookup(_quote, _client);
-            foreach (string result in w.results)
             {
-                Console.WriteLine(result);
-            }
+                string[] data = args[0].Split(',');
+                quotes.Add(data.ToString());
+            }           
+
+            new AppData(_client, quotes);
+        
         }
     }
 }
