@@ -4,21 +4,12 @@ namespace StockQuotes
 {
     public class Quote
     {
-        
-        public Quote(DateTime date, decimal open, decimal high, decimal low, decimal close)
-        {
-            Date = date;
-            Open = open;
-            High = high;
-            Low = low;
-            Close = close;
-        }
-     
-        public DateTime Date { get; }
-        public decimal Open { get; }
-        public decimal High { get; }
-        public decimal Low { get; }
-        public decimal Close { get; }
+        public string Name { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Open { get; set; }
+        public decimal High { get; set; }
+        public decimal Low { get; set; }
+        public decimal Close { get; set; }
     }
 }
 
