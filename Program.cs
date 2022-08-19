@@ -1,9 +1,9 @@
-﻿using StockQuotes;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 
-namespace StockPivots
+namespace StockQuotes
 {
     public class Program
     {        

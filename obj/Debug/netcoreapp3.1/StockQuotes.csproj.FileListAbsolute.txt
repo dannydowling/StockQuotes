@@ -18,7 +18,6 @@ C:\Users\danny\Source\Repos\dannydowling\StockQuotes\bin\Debug\netcoreapp3.1\Sto
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\bin\Debug\netcoreapp3.1\StockQuotes.dll
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\bin\Debug\netcoreapp3.1\StockQuotes.pdb
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.csprojAssemblyReference.cache
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.AssemblyInfoInputs.cache
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.AssemblyInfo.cs
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.csproj.CoreCompileInputs.cache
@@ -26,3 +25,5 @@ C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\Sto
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.dll
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.pdb
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.genruntimeconfig.cache
+C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.csproj.AssemblyReference.cache
+C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.GeneratedMSBuildEditorConfig.editorconfig
