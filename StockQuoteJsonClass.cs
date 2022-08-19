@@ -6,14 +6,17 @@ namespace StockQuotes
 
 {
     class CustomDateTimeConverter : IsoDateTimeConverter
-    {
-        public CustomDateTimeConverter()
-        {
-            base.DateTimeFormat = "yyyy-mm-dd";
-        }
+    {  public CustomDateTimeConverter()
+        {  base.DateTimeFormat = "yyyy-mm-dd";  }
     }
     public class StockQuote
     {
+        [JsonProperty("Symbol")]
+        public string Name { get; set; }
+
+        [JsonProperty(ItemConverterType = typeof(CustomDateTimeConverter))]
+        public TimeSeries Date { get; set; }
+
         [JsonProperty("Time Series (Daily)")]
         public Dictionary<string, TimeSeries> tsd { get; set; }
     }
@@ -26,19 +29,19 @@ namespace StockQuotes
     public class TimeSeries
     {
         [JsonProperty("1. open")]
-        public string Open { get; set; }
+        public decimal Open { get; set; }
 
         [JsonProperty("2. high")]
-        public string High { get; set; }
+        public decimal High { get; set; }
 
         [JsonProperty("3. low")]
-        public string Low { get; set; }
+        public decimal Low { get; set; }
 
         [JsonProperty("4. close")]
-        public string Close { get; set; }
+        public decimal Close { get; set; }
 
         [JsonProperty("5. volume")]
-        public string Volume { get; set; }
+        public int Volume { get; set; }
     }
 }
-    
+

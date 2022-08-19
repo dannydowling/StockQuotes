@@ -52,24 +52,28 @@ namespace StockQuotes
             //     "5. volume": "18253358"
             // },
 
+            List<TimeSeries> quotes = new List<TimeSeries>();
 
             foreach (var timeseriesarray in quoteArray)
             {
-                foreach (var quotes in timeseriesarray.tsd.Values)
+                foreach (TimeSeries quoteJson in timeseriesarray.tsd.Values)
                 {
+                    quotes.Add(quoteJson);
+                }
+            
                     for (int i = 0; i < quotes.Count - 4; i++)
                     {
                         if (quotes[i].Open > quotes[i + 1].High && quotes[i].Close < quotes[i + 1].Low)
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("{0}", quotes[i].Name);
-                            Console.WriteLine("Pivot downside {0}", quotes[i].Date.ToShortDateString());
+                            Console.WriteLine("{0}", timeseriesarray.Name);
+                            Console.WriteLine("Pivot downside {0}", timeseriesarray.Date);
                         }
-                        if (quotes[i].Open < quotes[i + 1]Low && quotes[i].Close > quotes[i + 1].High)
+                        if (quotes[i].Open < quotes[i + 1].Low && quotes[i].Close > quotes[i + 1].High)
                         {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("{0}", quotes[i].Name);
-                        Console.WriteLine("Pivot upside {0}", quotes[i].Date.ToShortDateString());
+                        Console.WriteLine("{0}", timeseriesarray.Name);
+                        Console.WriteLine("Pivot upside {0}", timeseriesarray.Date);
                     }
                 }
             }
