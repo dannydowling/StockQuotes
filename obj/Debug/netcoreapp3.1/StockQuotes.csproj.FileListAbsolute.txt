@@ -27,3 +27,7 @@ C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\Sto
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.genruntimeconfig.cache
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.csproj.AssemblyReference.cache
 C:\Users\danny\Source\Repos\dannydowling\StockQuotes\obj\Debug\netcoreapp3.1\StockQuotes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danny\Source\Repos\dannydowling\StockQuotes\bin\Debug\netcoreapp3.1\System.Net.Http.Json.dll
+C:\Users\danny\Source\Repos\dannydowling\StockQuotes\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\danny\Source\Repos\dannydowling\StockQuotes\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\danny\Source\Repos\dannydowling\StockQuotes\bin\Debug\netcoreapp3.1\System.Text.Json.dll

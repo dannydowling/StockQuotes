@@ -1,0 +1,17 @@
+C:\Users\danny\source\repos\dannydowling\StockQuotes\bin\Debug\net6.0\StockQuotes.exe
+C:\Users\danny\source\repos\dannydowling\StockQuotes\bin\Debug\net6.0\StockQuotes.deps.json
+C:\Users\danny\source\repos\dannydowling\StockQuotes\bin\Debug\net6.0\StockQuotes.runtimeconfig.json
+C:\Users\danny\source\repos\dannydowling\StockQuotes\bin\Debug\net6.0\StockQuotes.dll
+C:\Users\danny\source\repos\dannydowling\StockQuotes\bin\Debug\net6.0\StockQuotes.pdb
+C:\Users\danny\source\repos\dannydowling\StockQuotes\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\StockQuotes.csproj.AssemblyReference.cache
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\StockQuotes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\StockQuotes.AssemblyInfoInputs.cache
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\StockQuotes.AssemblyInfo.cs
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\StockQuotes.csproj.CoreCompileInputs.cache
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\StockQuotes.csproj.CopyComplete
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\StockQuotes.dll
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\refint\StockQuotes.dll
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\StockQuotes.pdb
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\StockQuotes.genruntimeconfig.cache
+C:\Users\danny\source\repos\dannydowling\StockQuotes\obj\Debug\net6.0\ref\StockQuotes.dll

@@ -9,7 +9,6 @@ namespace StockQuotes
     {        
         static void Main(string[] args)
         {
-            HttpClient _client = new HttpClient();
             List<string> quotes = new List<string>();
 
             if (args.Length < 1)
@@ -18,9 +17,10 @@ namespace StockQuotes
             {
                 string[] data = args[0].Split(',');
                 quotes.Add(data.ToString());
-            }           
+            }
+            string APIKey = "GUUNDXU41QUOVFW9";
 
-            new AppData(_client, quotes);
+            new AppData(APIKey, quotes);
         
         }
     }

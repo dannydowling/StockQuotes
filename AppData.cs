@@ -4,77 +4,77 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Net.Http.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json;
 
 namespace StockQuotes
 {
     public class AppData
     {
-        internal List<StockQuote> quoteArray { get; set; }
-
-        public AppData(HttpClient client, List<string> args)
+        public AppData(string APIKey, List<string> args)
         {
-            Initialize(client, args);
+            GetQuoteDataFromWeb(APIKey, args);
         }
-
-        public async void Initialize(HttpClient client, List<string> args)
-        {
-
-            string APIKey = "GUUNDXU41QUOVFW9";
-            List<string> responses = new List<string>();
-
-            StringBuilder sb = new StringBuilder();
-
+        public void GetQuoteDataFromWeb(string APIKey, List<string> args)
+        {            
+            string response = "";
+            string nameOfStock = "";
+            HttpClient client = new HttpClient();
+            StringBuilder sb = new StringBuilder();            
+            List<StockQuote> quotes = new List<StockQuote>();
 
             for (int i = 0; i < args.Count;)
             {
-                sb.Append("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=");
+                sb.Append($"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=");
                 sb.Append(args[i]);
                 sb.Append("&apikey=");
                 sb.Append(APIKey);
 
-                quoteArray.Add(await client.GetFromJsonAsync<StockQuote>(sb.ToString()));
+                string request = sb.ToString();
+
+                response = client.GetStringAsync(request).Result;
+                JObject jsonData = JObject.Parse(response);
+
+                nameOfStock = args[i];
+                try
+                {
+                    foreach (var item in jsonData.SelectToken("Time Series (Daily)"))
+                    {
+                        quotes.AddRange(item.Select(x => new StockQuote()
+                        {
+                            Name = nameOfStock,
+                            date = Convert.ToDateTime(item.Root),
+                            Open = Convert.ToDecimal(item.SelectToken("1. open")),
+                            Close = Convert.ToDecimal(item.SelectToken("4. close")),
+                            High = Convert.ToDecimal(item.SelectToken("2. high")),
+                            Low = Convert.ToDecimal(item.SelectToken("3. low")),
+                            volume = Convert.ToInt64(item.SelectToken("5. volume"))
+                        }));
+                    }
+                }
+                catch (Exception err)
+                {
+                    Console.WriteLine(err.Message, err.Source);
+                    i++;
+                }
+
                 i++;
             }
 
-            // "Time Series (Daily)": {
-            // "2022-08-18": {
-            //     "1. open": "290.1890",
-            //     "2. high": "291.9100",
-            //     "3. low": "289.0800",
-            //     "4. close": "290.1700",
-            //     "5. volume": "17186192"
-            // },            
-            //   "2022-08-17": {
-            //     "1. open": "289.7400",
-            //     "2. high": "293.3500",
-            //     "3. low": "289.4700",
-            //     "4. close": "291.3200",
-            //     "5. volume": "18253358"
-            // },
-
-            List<TimeSeries> quotes = new List<TimeSeries>();
-
-            foreach (var timeseriesarray in quoteArray)
+            for (int i = 0; i < quotes.Count - 4; i++)
             {
-                foreach (TimeSeries quoteJson in timeseriesarray.tsd.Values)
+                if (quotes[i].Open > quotes[i + 1].High && quotes[i].Close < quotes[i + 1].Low)
                 {
-                    quotes.Add(quoteJson);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("{0}", quotes[i].Name);
+                    Console.WriteLine("Pivot downside {0}", quotes[i].date);
                 }
-            
-                    for (int i = 0; i < quotes.Count - 4; i++)
-                    {
-                        if (quotes[i].Open > quotes[i + 1].High && quotes[i].Close < quotes[i + 1].Low)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("{0}", timeseriesarray.Name);
-                            Console.WriteLine("Pivot downside {0}", timeseriesarray.Date);
-                        }
-                        if (quotes[i].Open < quotes[i + 1].Low && quotes[i].Close > quotes[i + 1].High)
-                        {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("{0}", timeseriesarray.Name);
-                        Console.WriteLine("Pivot upside {0}", timeseriesarray.Date);
-                    }
+                if (quotes[i].Open < quotes[i + 1].Low && quotes[i].Close > quotes[i + 1].High)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("{0}", quotes[i].Name);
+                    Console.WriteLine("Pivot upside {0}", quotes[i].date);
                 }
             }
         }
