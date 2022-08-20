@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s2mLHyqAay5YB0Nqg9Mq/Wdu+cuUtXzAxlnhPkFUwyDvuZpBCIkbbawo6Wvdi0udle53Hbys7qqJcbSmGS+IrA==",
+  "dgSpecHash": "o3aumEjvmFrtc6kFuGwxZT13vUtbVk5VbPQtN7d7ChEhy89KqGnyKR6DP2ptcH55tzoNIjptmLP7D+bK2+VEcw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danny\\source\\repos\\dannydowling\\StockQuotes\\StockQuotes.csproj",
+  "projectFilePath": "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

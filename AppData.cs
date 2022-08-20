@@ -39,23 +39,25 @@ namespace StockQuotes
                 nameOfStock = args[i];
                 try
                 {
-                    foreach (var item in jsonData.SelectToken("Time Series (Daily)"))
+                    foreach (JToken item in jsonData.SelectToken("['Time Series (Daily)']"))
                     {
-                        quotes.AddRange(item.Select(x => new StockQuote()
+                        DataSetByDay dataSet = item.ToObject<DataSetByDay>();
+
+                        quotes = item.Select(x => new StockQuote()
                         {
                             Name = nameOfStock,
-                            date = Convert.ToDateTime(item.Root),
-                            Open = Convert.ToDecimal(item.SelectToken("1. open")),
-                            Close = Convert.ToDecimal(item.SelectToken("4. close")),
-                            High = Convert.ToDecimal(item.SelectToken("2. high")),
-                            Low = Convert.ToDecimal(item.SelectToken("3. low")),
-                            volume = Convert.ToInt64(item.SelectToken("5. volume"))
-                        }));
+                            date = dataSet.date,
+                            open = dataSet.open,
+                            high = dataSet.high,
+                            low = dataSet.low,
+                            close = dataSet.close,
+                            volume = dataSet.volume                  
+                        }).ToList();
                     }
                 }
                 catch (Exception err)
                 {
-                    Console.WriteLine(err.Message, err.Source);
+                    Console.WriteLine(err.Message, err.InnerException);
                     i++;
                 }
 
@@ -64,13 +66,13 @@ namespace StockQuotes
 
             for (int i = 0; i < quotes.Count - 4; i++)
             {
-                if (quotes[i].Open > quotes[i + 1].High && quotes[i].Close < quotes[i + 1].Low)
+                if (quotes[i].open > quotes[i + 1].high && quotes[i].close < quotes[i + 1].low)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("{0}", quotes[i].Name);
                     Console.WriteLine("Pivot downside {0}", quotes[i].date);
                 }
-                if (quotes[i].Open < quotes[i + 1].Low && quotes[i].Close > quotes[i + 1].High)
+                if (quotes[i].open < quotes[i + 1].low && quotes[i].close > quotes[i + 1].high)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("{0}", quotes[i].Name);

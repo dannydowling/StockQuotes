@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danny\\source\\repos\\dannydowling\\StockQuotes\\StockQuotes.csproj": {}
+    "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danny\\source\\repos\\dannydowling\\StockQuotes\\StockQuotes.csproj": {
+    "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danny\\source\\repos\\dannydowling\\StockQuotes\\StockQuotes.csproj",
+        "projectUniqueName": "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj",
         "projectName": "StockQuotes",
-        "projectPath": "C:\\Users\\danny\\source\\repos\\dannydowling\\StockQuotes\\StockQuotes.csproj",
+        "projectPath": "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\StockQuotes.csproj",
         "packagesPath": "C:\\Users\\danny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danny\\source\\repos\\dannydowling\\StockQuotes\\obj\\",
+        "outputPath": "C:\\Users\\danny\\Source\\Repos\\dannydowling\\StockQuotes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

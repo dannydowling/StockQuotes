@@ -12,24 +12,30 @@ namespace StockQuotes
     }
 
     // each daily record from the website
-    internal class DataSetByDay 
+    internal class DataSetByDay
     {
-        public decimal Open { get; set; }
+        [JsonConverter(typeof(CustomDateTimeConverter))]
+        [JsonProperty("['Time Series (Daily)']")]
+        public DateTime date { get; set; }
 
-        public decimal High { get; set; }
+        [JsonProperty("1. open")]
+        public decimal open { get; set; }
 
-        public decimal Low { get; set; }
+        [JsonProperty("2. high")]
+        public decimal high { get; set; }
 
-        public decimal Close { get; set; }
+        [JsonProperty("3. low")]
+        public decimal low { get; set; }
 
+        [JsonProperty("4. close")]
+        public decimal close { get; set; }
+        [JsonProperty("5. volume")]
         public long volume { get; set; }
     }
 
     //this would append the date and the name of the stock to the time series.
     internal class StockQuote : DataSetByDay
     {
-        [JsonProperty(ItemConverterType = typeof(CustomDateTimeConverter))]
-      public DateTime date { get; set; }
        public string Name { get; set; }
     }
 }
