@@ -24,7 +24,7 @@ namespace StockQuotes
             }
 
             //please use your own API key.
-            string APIKey = "GUUNDXU41QUOVFW9";
+            string APIKey = "";
             string response = "";
             string nameOfStock = "";
             HttpClient client = new HttpClient();
