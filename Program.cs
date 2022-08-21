@@ -97,8 +97,8 @@ namespace StockQuotes
                     if (quotes[j].open < quotes[j + 1].low && quotes[j].close > quotes[j + 1].high)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("{0}", quotes[i].Name);
-                        Console.WriteLine("Pivot upside {0}", quotes[i].date);
+                        Console.WriteLine("{0}", quotes[j].Name);
+                        Console.WriteLine("Pivot upside {0}", quotes[j].date);
                     }
                 }
             }
